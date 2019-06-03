@@ -4,6 +4,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Main from "./record/Main";
 import './App.css'
+// import 'bulma/css/bulma.css';
+
 
 ReactDOM.render(<Main />, document.getElementById('root'));
 

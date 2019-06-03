@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import {PrimaryButton} from 'office-ui-fabric-react';
+
+
 
 const StudentRecord = props => (
     <table>
@@ -20,10 +23,10 @@ const StudentRecord = props => (
                     <td>{student.student_mark}</td>
                     <td>{student.student_grade}</td>
                     <td>
-                        <button className="button muted-button" onClick={() => {
+                        <PrimaryButton text="Edit" className="button muted-button" onClick={() => {
                             props.editData(student)
-                        }}>Edit</button>
-                        <button className="button muted-button" onClick={() => props.deleteStudent(student.id)} className="button muted-button">Delete</button>
+                        }}/>
+                        <PrimaryButton text="Delete"  allowDisabledFocus={true} className="button muted-button" onClick={() => props.deleteStudent(student.id)} />
                     </td>
                 </tr>
             ))
