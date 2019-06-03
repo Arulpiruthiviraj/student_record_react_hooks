@@ -10,21 +10,22 @@ const Main = () => {
     const studentData = [
         { id: 1, student_name: 'Arul', student_class: 'A' ,student_mark:'85',student_grade:'A'},
         { id: 2, student_name: 'Geri', student_class: 'B' ,student_mark:'99',student_grade:'A'},
-        { id: 3, student_name: 'Hari', student_class: 'B' ,student_mark:'100',student_grade:'A'}
+        { id: 3, student_name: 'Hari', student_class: 'B' ,student_mark:'100',student_grade:'A'},
+        { id: 4, student_name: 'Pakeerathan', student_class: 'A' ,student_mark:'100',student_grade:'A'}
     ];
     const [jokeOfTheDay, setjokeOfTheDay] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await axios({
-                method:'GET',
-                url:'https://api.chucknorris.io/jokes/random',
-            });
-            setjokeOfTheDay(response.data.value);
-            console.log(response.data.value);
-        }
-        fetchData();
-    },[]);
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const response = await axios({
+    //             method:'GET',
+    //             url:'https://api.chucknorris.io/jokes/random',
+    //         });
+    //         setjokeOfTheDay(response.data.value);
+    //         console.log(response.data.value);
+    //     }
+    //     fetchData();
+    // },[]);
     const [students, setStudents] = useState(studentData);
     const [editing, setEditing] = useState(false);
     const initialFormState = { id: null, student_name: '', student_class: '',student_mark: '',student_grade: '' };
@@ -92,10 +93,13 @@ const Main = () => {
                     <div className="card">
                         <div className="card-content">
                             <p className="title">
-                                {jokeOfTheDay}
-                            </p>
-                            <p className="subtitle">
-                                Chuck Norris Jokes
+                                Grade A:&nbsp; Mark 85 and Above
+                                <br/>
+                                Grade B:&nbsp; Mark between 65 and 85
+                                <br/>
+                                Grade C:&nbsp; Mark between 65 and 35
+                                <br/>
+                                Grade FAIL:&nbsp;Below 35
                             </p>
                         </div>
                     </div>
