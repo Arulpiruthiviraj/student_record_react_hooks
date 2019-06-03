@@ -7,13 +7,8 @@ import EditRecordForm from "./EditRecordForm";
 const Main = () => {
     const studentData = [
         { id: 1, student_name: 'Arul', student_class: 'A' ,student_mark:'85',student_grade:'A'},
-        { id: 2, student_name: 'Tania', student_class: 'B' ,student_mark:'85',student_grade:'A'},
-        { id: 3, student_name: 'Tania', student_class: 'A' ,student_mark:'85',student_grade:'A'},
-        { id: 4, student_name: 'Tania', student_class: 'C' ,student_mark:'85',student_grade:'A'},
-        { id: 5, student_name: 'Tania', student_class: 'A' ,student_mark:'85',student_grade:'A'},
-        { id: 6, student_name: 'Tania', student_class: 'B' ,student_mark:'85',student_grade:'A'},
-        { id: 7, student_name: 'Tania', student_class: 'A' ,student_mark:'85',student_grade:'A'},
-
+        { id: 2, student_name: 'Geri', student_class: 'B' ,student_mark:'99',student_grade:'A'},
+        { id: 2, student_name: 'Hari', student_class: 'B' ,student_mark:'100',student_grade:'A'}
     ];
 
     const [students, setStudents] = useState(studentData);
