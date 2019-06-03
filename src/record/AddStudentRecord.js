@@ -15,11 +15,11 @@ import React, { useState } from 'react'
     return (
         <form onSubmit={handleRecordSubmission}>
             <label>Name</label>
-            <input type="text" name="student_name" value={student.student_name} onChange={handleInputChange} />
+            <input type="text" name="student_name" value={student.student_name} onChange={handleInputChange} required />
             <label>Class</label>
-            <input type="text" name="student_class" value={student.student_class} onChange={handleInputChange} />
+            <input type="text" name="student_class" value={student.student_class} onChange={handleInputChange} required />
             <label>Mark</label>
-            <input type="text" name="student_mark" value={student.student_mark} onChange={handleInputChange} />
+            <input type="text" name="student_mark" value={student.student_mark} onChange={handleInputChange} required/>
             <button>Add</button>
         </form>
     )

@@ -1,9 +1,8 @@
 import React, { useState ,useEffect} from 'react';
-import axios from 'axios';
 import StudentRecord from "./StudentRecord";
 import AddStudentRecord from "./AddStudentRecord";
 import EditRecordForm from "./EditRecordForm";
-import {DocumentCard} from "office-ui-fabric-react";
+import { Nav } from 'office-ui-fabric-react/lib/Nav';
 
 
 const Main = () => {
@@ -33,20 +32,7 @@ const Main = () => {
 
     const addRecord = student => {
         const mark=student.student_mark;
-        switch(true) {
-            case mark>85:
-                student.student_grade='A';
-                break;
-            case mark<85&&mark>65:
-                student.student_grade='B';
-                break;
-            case mark<65&&mark>35:
-                student.student_grade='C';
-                break;
-            case mark<35:
-                student.student_grade='FAIL';
-                break;
-        }
+       gradeChecker(mark,student);
         student.id = students.length + 1;
         setStudents([...students, student]);
     };
@@ -55,12 +41,16 @@ const Main = () => {
     };
     const editRecord = student => {
         setEditing(true);
-        setCurrentRecord({ id: student.id,
+        setCurrentRecord({
+            id: student.id,
             student_name: student.student_name,
             student_class: student.student_class,
-            student_mark: student.student_mark, })
+            student_mark: student.student_mark,
+        })
     };
     const updateRecord = (id,  updatedRecord) => {
+        const mark=updatedRecord.student_mark;
+        gradeChecker(mark,updatedRecord);
         setEditing(false);
         setStudents(students.map(student => (student.id === id ? updatedRecord : student)))
     };
@@ -109,3 +99,21 @@ const Main = () => {
     )
 };
 export  default Main;
+
+function gradeChecker(mark,record) {
+    switch(true) {
+        case mark>85:
+            record.student_grade='A';
+            break;
+        case mark<85&&mark>65:
+            record.student_grade='B';
+            break;
+        case mark<65&&mark>35:
+            record.student_grade='C';
+            break;
+        case mark<35:
+            record.student_grade='FAIL';
+            break;
+    }
+    return record.student_grade;
+}

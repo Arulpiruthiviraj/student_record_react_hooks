@@ -5,13 +5,12 @@ const EditRecordForm = props => {
     const [student, setStudent] = useState(props.currentRecord);
     useEffect(() => {
         setStudent(props.currentRecord)
-    }, [props])
+    }, [props]);
 
     const handleInputChange = event => {
-        const { name, value } = event.target
-
+        const { name, value } = event.target;
         setStudent({ ...student, [name]: value })
-    }
+    };
 
     return (
         <form
