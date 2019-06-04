@@ -36,6 +36,15 @@ const Main = () => {
         student.id = students.length + 1;
         setStudents([...students, student]);
     };
+
+    const searchData = event => {
+        let searcjQery = event.target.value.toLowerCase();
+        setStudents( students.filter((el) => {
+            console.log(el);
+            let searchValue = el.student_name.toLowerCase();
+            return searchValue.indexOf(searcjQery) !== -1;
+        }));
+    };
     const deleteRecord = id => {
         setStudents(students.filter(user => user.id !== id))
     };
@@ -79,7 +88,7 @@ const Main = () => {
                 </div>
                 <div className="flex-large">
                     <h2>View Data</h2>
-                    <StudentRecord students={students}  editData={editRecord} deleteStudent={deleteRecord} />
+                    <StudentRecord students={students} searchData={searchData} editData={editRecord} deleteStudent={deleteRecord} />
                     <div className="card">
                         <div className="card-content">
                             <p className="title">
