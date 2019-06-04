@@ -39,11 +39,13 @@ const Main = () => {
 
     const searchData = event => {
         let searcjQery = event.target.value.toLowerCase();
-        setStudents( students.filter((el) => {
-            console.log(el);
-            let searchValue = el.student_name.toLowerCase();
-            return searchValue.indexOf(searcjQery) !== -1;
-        }));
+        setStudents(students.filter(function(item){
+            return item.student_name.toLowerCase().search(searcjQery) !== -1;
+        }))
+        // setStudents( students.filter((el) => {
+        //     let searchValue = el.student_name.toLowerCase();
+        //     return searchValue.indexOf(searcjQery) !== -1;
+        // }));
     };
     const deleteRecord = id => {
         setStudents(students.filter(user => user.id !== id))
